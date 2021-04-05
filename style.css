@@ -1,0 +1,27 @@
+.body{
+    background-color: #F2F3FF;
+    font-family: 'Quicksand', sans-serif;
+}
+.topbar{
+    position: relative;
+    left: 25%;
+    background-color: #38A3A5;
+    width: 50%;
+    height: 10%;
+    box-shadow: 0px 0px 63px -30px rgba(0,0,0,1);
+}
+.astext {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 30px;
+    font-weight: 100;
+    background:none;
+    border:none;
+    margin:0;
+    padding:0;
+    cursor: pointer;
+    margin-left: 50px;
+}
+#ml {
+    position: relative;
+    left: 12%;
+}
