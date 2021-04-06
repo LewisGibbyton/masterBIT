@@ -3,30 +3,110 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-        <link rel="stylesheet" href="src\style.css">
+        <link rel="stylesheet" href="src\style.scss">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
         <title>_it</title>
-        <link rel="icon" href="src\it_icon.png">  
+        <link rel="icon" href="src\it_icon.png">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js" integrity="sha256-lPE3wjN2a7ABWHbGz7+MKBJaykyzqCbU96BJWjio86U=" crossorigin="anonymous"></script>  
     </head>
     <body>
-        <div class="container" >
-            <header class="d-flex justify-content-center py-3 topbar">
-                <div class="row">
-                    <div class="col-md-auto font-gb">
-                        <button class="btn-top">Machine Learning</button>
-                    </div>
-                    <div class="col-md-auto font-gb">
-                        <button type="button" class="btn-top">Kryptowaluty</button>
-                    </div>
-                    <div class="col-md-auto font-gb">
-                        <button type="button" class="btn-top">Internet of things</button>
-                    </div> 
-                </div>
+        <!-- Wszystko poniżej dotyczy navigation bara ⏬-->
+          <div class="navigator" >
+              <link rel="stylesheet" href="src\navigator.scss">
+              <nav class="tab">
+                <span class="tab__indicator"></span>
+                <ul class="tab__items">
+                  <li class="tab__item tab__item--active">
+                    <svg version="1.1" class="tab__icon" id="browse-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+                      <path class="st0" d="M16,1.6C8,1.6,1.6,8,1.6,16S8,30.4,16,30.4S30.4,24,30.4,16S24,1.6,16,1.6z M16,5.2c4.7,0,8.6,3,10.1,7.2H5.9
+                        C7.4,8.2,11.3,5.2,16,5.2z M5.2,16c4.9,0,8.9,4.7,9,10.6C9.1,25.7,5.2,21.3,5.2,16z M17.8,26.6c0.1-5.9,4.1-10.6,9-10.6
+                        C26.8,21.3,22.9,25.7,17.8,26.6z"/>
+                    </svg>
+                    <p class="tab__title">Browse</p>
+                  </li>
+                  <li class="tab__item">
+                    <svg  version="1.1" class="tab__icon" id="profile-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor" class="bi bi-terminal-fill" viewBox="0 0 16 16" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+              <path class="st0" d="M0 3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3zm9.5 5.5h-3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zm-6.354-.354a.5.5 0 1 0 .708.708l2-2a.5.5 0 0 0 0-.708l-2-2a.5.5 0 1 0-.708.708L4.793 6.5 3.146 8.146z"/>
+            </svg>
+                    <p class="tab__title">Profile</p>
+                  </li>
+                  <li class="tab__item">
+                    <svg version="1.1" class="tab__icon" id="chat-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+                      <path class="st0" d="M7.2,3.2h17.5c2.2,0,4,1.8,4,4v12.1c0,2.2-1.8,4-4,4h-6.2l-5,5c-0.2,0.2-0.6,0.4-1,0.4c-0.7,0-1.3-0.6-1.3-1.3
+                        v-4h-4c-2.2,0-4-1.8-4-4V7.2C3.2,5,5,3.2,7.2,3.2z"/>
+                    </svg>
+                    <p class="tab__title">Chat</p>
+                  </li>
+                  <li class="tab__item">
+                    <svg version="1.1" class="tab__icon" id="menu-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+                      <path class="st0" d="M9.6,8c0-0.9,0.7-1.6,1.6-1.6h16c0.9,0,1.6,0.7,1.6,1.6s-0.7,1.6-1.6,1.6h-16C10.3,9.6,9.6,8.9,9.6,8z M28.8,16
+                           c0,0.9-0.7,1.6-1.6,1.6H4.8c-0.9,0-1.6-0.7-1.6-1.6s0.7-1.6,1.6-1.6h22.4C28.1,14.4,28.8,15.1,28.8,16z M4.8,22.4h16
+                          c0.9,0,1.6,0.7,1.6,1.6s-0.7,1.6-1.6,1.6h-16c-0.9,0-1.6-0.7-1.6-1.6S3.9,22.4,4.8,22.4z"/>
+                    </svg>
+                    <p class="tab__title">Menu</p>
+                  </li>
+                </ul>
+              </nav>
+              <script>
+                const tab = document.querySelector('.tab');
+                const itemsParent = document.querySelector('.tab__items');
+                const items = document.querySelectorAll('.tab__item');
+                const indicator = document.querySelector('.tab__indicator');
                 
-            </header>
+                TweenMax.set(tab, { transformPerspective: 400, transformOrigin:'center center'});
+                
+                const getActiveTabIndex = () => {
+                  return Array.from(items).findIndex(item => item.classList.contains('tab__item--active'));
+                }
+                
+                const getIndicatorPos = () => {
+                  const { x: tabX } = tab.getBoundingClientRect();
+                  const { width: itemWidth, x: itemX } = items[getActiveTabIndex()].getBoundingClientRect();
+                  const { width: indicatorWidth } = indicator.getBoundingClientRect();
+                 
+                  const indicatorPosition = (itemX + itemWidth/2 - indicatorWidth/2) - tabX;
+                  
+                  return indicatorPosition;
+                }
+                
+                const setIndicatorPos = () => {
+                  TweenMax.set(indicator, { x: getIndicatorPos()});  
+                }
+                
+                const tilt = (e) => {
+                  if (e.target.classList.contains('tab__item')) {
+                    const pageX = e.pageX ? e.pageX : e.touches[0].pageX;
+                    const rotate = pageX - window.innerWidth/2; 
+                  
+                    TweenMax.to(e.target, .2, { scale: .8, ease: Power4.easeOut });
+                    TweenMax.to(tab, .5, { rotationY: 0.03 * rotate, rotationX: -Math.abs(0.015 * rotate), rotationZ: '-0.1' });
+                  }
+                }
+                
+                const activateTab = (e) => {
+                  if (e.target.classList.contains('tab__item')) {
+                    items.forEach(item => item.classList.remove('tab__item--active'));
+                    e.target.classList.add('tab__item--active');
+                    
+                    TweenMax.to(indicator, .5, { x: getIndicatorPos() });
+                    TweenMax.to(e.target, .3, { scale: 1, ease: Back.easeOut.config(5) });
+                    TweenMax.to(tab, .5, { rotationY: 0, rotationX: 0, rotationZ: 0 }); 
+                  }
+                }
+                
+                setIndicatorPos();
+                
+                itemsParent.addEventListener('touchstart', tilt);
+                itemsParent.addEventListener('mousedown', tilt);
+                
+                itemsParent.addEventListener('touchend', activateTab);
+                itemsParent.addEventListener('mouseup', activateTab);
+                
+                window.addEventListener('resize', setIndicatorPos);
+                
+              </script>
           </div>
-          
         <script>
             var material = [1, 0, 2, 3]
             material.map((material) => {
